@@ -102,11 +102,11 @@ export default function Footer() {
             <div className="space-y-3">
               <p className="text-gray-300 flex items-start">
                 <MapPin className="w-4 h-4 mt-1 mr-3 text-primary-green flex-shrink-0" />
-                Jl. Sudirman No. 123<br />Jakarta Pusat 10270
+                Jl. Siti Mariah<br />Jakarta, Indonesia
               </p>
               <p className="text-gray-300 flex items-center">
                 <Phone className="w-4 h-4 mr-3 text-primary-green" />
-                +62 21 1234 5678
+                082115665661
               </p>
               <p className="text-gray-300 flex items-center">
                 <Mail className="w-4 h-4 mr-3 text-primary-green" />

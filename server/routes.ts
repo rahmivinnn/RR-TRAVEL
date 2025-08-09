@@ -64,6 +64,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Environment variables endpoint
+  app.get("/api/config", async (req, res) => {
+    try {
+      res.json({
+        mapboxToken: process.env.MAPBOX_PUBLIC_KEY || ''
+      });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to get config" });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

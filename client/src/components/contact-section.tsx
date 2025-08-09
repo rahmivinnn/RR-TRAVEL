@@ -70,12 +70,12 @@ export default function ContactSection() {
     {
       icon: MapPin,
       title: "Alamat Kantor",
-      content: "Jl. Sudirman No. 123, Jakarta Pusat\nIndonesia 10270"
+      content: "Jl. Siti Mariah, Jakarta\nIndonesia"
     },
     {
       icon: Phone,
       title: "Telepon",
-      content: "+62 21 1234 5678\n+62 812 3456 7890"
+      content: "082115665661"
     },
     {
       icon: Mail,
