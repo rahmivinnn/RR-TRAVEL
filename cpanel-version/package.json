@@ -1,0 +1,111 @@
+{
+  "name": "rr-travel-cpanel",
+  "version": "1.0.0",
+  "description": "RR Travel - Indonesian Tourism Company Website (cPanel Ready)",
+  "main": "index.html",
+  "scripts": {
+    "start": "Live Server or any static server",
+    "deploy": "Upload to cPanel public_html folder"
+  },
+  "keywords": [
+    "travel",
+    "tourism",
+    "indonesia",
+    "bali",
+    "yogyakarta",
+    "lombok",
+    "raja-ampat",
+    "tour-packages",
+    "cpanel",
+    "static-website"
+  ],
+  "author": {
+    "name": "RR Travel",
+    "email": "info@rrtravel.com",
+    "phone": "082115665661"
+  },
+  "license": "Private",
+  "homepage": "https://yourdomain.com",
+  "repository": {
+    "type": "git",
+    "url": "Private repository"
+  },
+  "dependencies": {
+    "note": "This is a static HTML website with no Node.js dependencies. All libraries are loaded via CDN:",
+    "mapbox-gl": "2.15.0 (CDN)",
+    "font-awesome": "6.4.0 (CDN)",
+    "html5-qrcode": "2.3.8 (CDN)"
+  },
+  "browser_support": {
+    "chrome": ">=60",
+    "firefox": ">=55", 
+    "safari": ">=12",
+    "edge": ">=79",
+    "mobile": "All modern mobile browsers"
+  },
+  "features": {
+    "responsive": true,
+    "pwa_ready": false,
+    "offline_support": false,
+    "qr_scanner": true,
+    "maps": true,
+    "whatsapp_integration": true,
+    "seo_optimized": true,
+    "cpanel_ready": true
+  },
+  "cdn_resources": [
+    "https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css",
+    "https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+    "https://unpkg.com/html5-qrcode@2.3.8/minified/html5-qrcode.min.js"
+  ],
+  "file_structure": {
+    "index.html": "Main website file",
+    "style.css": "All styling with Tokopedia-inspired design",
+    "script.js": "JavaScript functionality",
+    "assets/": "Images and media files",
+    ".htaccess": "Apache server configuration",
+    "robots.txt": "SEO crawler instructions", 
+    "sitemap.xml": "SEO site structure"
+  },
+  "contact": {
+    "business_name": "RR Travel",
+    "owner": "Reza Pahlawan",
+    "address": "Jl. Siti Mariah, Bandung 40231",
+    "phone": "082115665661",
+    "email": "info@rrtravel.com",
+    "whatsapp": "https://wa.me/6282115665661"
+  },
+  "packages": [
+    {
+      "name": "Bali Budaya & Alam",
+      "duration": "3D2N",
+      "price": "Rp 2,850,000"
+    },
+    {
+      "name": "Yogya Heritage Tour", 
+      "duration": "4D3N",
+      "price": "Rp 1,950,000"
+    },
+    {
+      "name": "Lombok Paradise",
+      "duration": "5D4N", 
+      "price": "Rp 3,450,000"
+    },
+    {
+      "name": "Raja Ampat Diving",
+      "duration": "6D5N",
+      "price": "Rp 8,750,000"
+    },
+    {
+      "name": "Java Cultural Journey",
+      "duration": "7D6N",
+      "price": "Rp 4,250,000"
+    },
+    {
+      "name": "Adventure Trekking",
+      "duration": "4D3N",
+      "price": "Rp 2,150,000"
+    }
+  ]
+}

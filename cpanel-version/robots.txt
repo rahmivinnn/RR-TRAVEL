@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# RR Travel - Indonesian Tourism
+# Allow all crawling for better SEO visibility
+
+# Specific paths
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+
+# Disallow sensitive files
+Disallow: /cpanel/
+Disallow: /cgi-bin/
+Disallow: /.htaccess
+Disallow: /error_log
+Disallow: /tmp/
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

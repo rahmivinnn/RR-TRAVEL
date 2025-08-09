@@ -1,6 +1,11 @@
 # Overview
 
-RR Travel is a comprehensive Indonesian travel agency website built with a modern full-stack architecture. The application showcases travel packages for Indonesian destinations like Bali, Yogyakarta, Lombok, and Raja Ampat. It features a beautiful, responsive frontend with travel package displays, testimonials, contact forms, and company information, backed by a REST API for managing travel packages and customer inquiries.
+RR Travel is a comprehensive Indonesian travel agency website available in two versions:
+
+1. **React/Node.js Version**: Modern full-stack architecture with React frontend and Express backend
+2. **cPanel Ready Version**: Pure HTML/CSS/JavaScript static website optimized for cPanel hosting
+
+The application showcases travel packages for Indonesian destinations like Bali, Yogyakarta, Lombok, and Raja Ampat. Features include clickable travel packages with detailed modals, Mapbox integration with location search, QR code scanner, WhatsApp-integrated contact forms, and Tokopedia-inspired design with green color scheme.
 
 # User Preferences
 
@@ -23,13 +28,20 @@ Preferred communication style: Simple, everyday language.
 - **Data Storage**: In-memory storage implementation with interface for future database integration
 - **Development**: Hot module replacement and middleware for request logging
 
-## Database Design
-- **ORM**: Drizzle ORM with PostgreSQL dialect for type-safe database operations
+## Database Design (React Version Only)
+- **ORM**: Drizzle ORM with PostgreSQL dialect for type-safe database operations  
 - **Schema**: Three main entities:
   - Users table for authentication (planned feature)
   - Travel packages table with details like name, description, price, duration, location
   - Inquiries table for customer contact form submissions
 - **Validation**: Zod schemas for runtime type validation and API request/response validation
+
+## cPanel Static Version
+- **Architecture**: Pure HTML/CSS/JavaScript without build process
+- **Data Storage**: JavaScript objects for travel package data
+- **Deployment**: Direct upload to cPanel public_html folder
+- **External Services**: Mapbox API, WhatsApp Web API, QR Code Scanner via CDN
+- **Optimization**: .htaccess for compression, caching, and security headers
 
 ## Key Design Patterns
 - **Monorepo Structure**: Shared schema definitions between frontend and backend in `/shared` directory

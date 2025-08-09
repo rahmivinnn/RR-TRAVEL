@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RR Travel - Wisata Indonesia Terpercaya</title>
+    <meta name="description" content="RR Travel menyediakan paket wisata terbaik ke Bali, Yogyakarta, Lombok, Raja Ampat dengan harga terjangkau dan pelayanan profesional.">
+    
+    <!-- Mapbox CSS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- QR Code Scanner -->
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/minified/html5-qrcode.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/rr-travel-logo.png" alt="RR Travel" class="logo-img" onerror="this.style.display='none'">
+                <span class="logo-text">RR Travel</span>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">Tentang Kami</a>
+                <a href="#packages" class="nav-link">Paket Wisata</a>
+                <a href="#contact" class="nav-link">Kontak</a>
+                <button class="qr-scanner-btn" onclick="openQRScanner()">
+                    <i class="fas fa-qrcode"></i>
+                    Scan QR
+                </button>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Jelajahi Keindahan Indonesia Bersama RR Travel</h1>
+            <p class="hero-subtitle">Paket wisata terpercaya dengan harga terjangkau untuk destinasi eksotis di seluruh Nusantara</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToSection('packages')">Lihat Paket Wisata</button>
+                <button class="btn-secondary" onclick="scrollToSection('contact')">Hubungi Kami</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=800" alt="Beautiful Indonesia" loading="lazy">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2 class="section-title">Tentang RR Travel</h2>
+                    <div class="owner-info">
+                        <div class="owner-details">
+                            <h3 class="owner-name">Reza Pahlawan</h3>
+                            <p class="owner-title">Founder & CEO RR Travel</p>
+                            <p class="about-text">
+                                Dengan pengalaman lebih dari 10 tahun dalam industri pariwisata Indonesia, 
+                                Reza Pahlawan mendirikan RR Travel untuk memberikan pengalaman wisata 
+                                terbaik dengan pelayanan berkualitas tinggi dan harga yang terjangkau.
+                            </p>
+                            <div class="company-stats">
+                                <div class="stat-item">
+                                    <div class="stat-number">5000+</div>
+                                    <div class="stat-label">Wisatawan Puas</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">50+</div>
+                                    <div class="stat-label">Destinasi</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">10+</div>
+                                    <div class="stat-label">Tahun Berpengalaman</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="assets/owner-reza.png" alt="Reza Pahlawan - Founder RR Travel" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Packages Section -->
+    <section id="packages" class="packages">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Paket Wisata Terpopuler</h2>
+                <p class="section-subtitle">Pilihan paket tour terbaik dengan harga terjangkau dan pelayanan memuaskan</p>
+            </div>
+            
+            <div class="packages-grid" id="packagesGrid">
+                <!-- Package cards will be dynamically inserted here -->
+            </div>
+            
+            <div class="section-footer">
+                <button class="btn-primary">Lihat Semua Paket</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-content">
+                <div class="map-info">
+                    <h2 class="section-title">Lokasi Kantor Kami</h2>
+                    <div class="location-details">
+                        <div class="location-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Jl. Siti Mariah, Bandung 40231</span>
+                        </div>
+                        <div class="location-item">
+                            <i class="fas fa-phone"></i>
+                            <span>082115665661</span>
+                        </div>
+                        <div class="location-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@rrtravel.com</span>
+                        </div>
+                    </div>
+                    <div class="map-search">
+                        <input type="text" id="locationSearch" placeholder="Cari lokasi..." class="search-input">
+                        <button onclick="searchLocation()" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <div id="map" class="map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 class="section-title">Hubungi Kami</h2>
+                    <p class="contact-description">
+                        Siap membantu merencanakan perjalanan impian Anda. 
+                        Tim professional kami siap memberikan konsultasi terbaik.
+                    </p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Telepon/WhatsApp</strong>
+                                <span>082115665661</span>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <span>info@rrtravel.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Alamat</strong>
+                                <span>Jl. Siti Mariah, Bandung 40231</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm" onsubmit="submitContactForm(event)">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Nama Lengkap" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Nomor WhatsApp" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="package" name="package" required>
+                            <option value="">Pilih Paket Wisata</option>
+                            <option value="bali">Bali Budaya & Alam</option>
+                            <option value="yogya">Yogya Heritage Tour</option>
+                            <option value="lombok">Lombok Paradise</option>
+                            <option value="raja-ampat">Raja Ampat Diving</option>
+                            <option value="java">Java Cultural Journey</option>
+                            <option value="trekking">Adventure Trekking</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Pesan atau pertanyaan Anda..." rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Kirim Pesan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">RR Travel</h3>
+                    <p class="footer-text">
+                        Menjadi partner terpercaya untuk perjalanan wisata impian Anda 
+                        di seluruh destinasi eksotis Indonesia.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Destinasi Populer</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Bali</a></li>
+                        <li><a href="#">Yogyakarta</a></li>
+                        <li><a href="#">Lombok</a></li>
+                        <li><a href="#">Raja Ampat</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Layanan</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Paket Wisata</a></li>
+                        <li><a href="#">Tour Guide</a></li>
+                        <li><a href="#">Transportasi</a></li>
+                        <li><a href="#">Akomodasi</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Kontak</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Jl. Siti Mariah, Bandung 40231</p>
+                        <p><i class="fas fa-phone"></i> 082115665661</p>
+                        <p><i class="fas fa-envelope"></i> info@rrtravel.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 RR Travel. All rights reserved. | Designed with ❤️ for Indonesian Tourism</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Package Detail Modal -->
+    <div id="packageModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle" class="modal-title"></h2>
+                <button class="modal-close" onclick="closePackageModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <!-- QR Scanner Modal -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content qr-modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Scan QR Code RR Travel</h2>
+                <button class="modal-close" onclick="closeQRScanner()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="qr-reader" class="qr-reader"></div>
+                <div id="qr-reader-results" class="qr-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
+    <script src="script.js"></script>
+</body>
+</html>
