@@ -70,7 +70,7 @@ export default function ContactSection() {
     {
       icon: MapPin,
       title: "Alamat Kantor",
-      content: "Jl. Siti Mariah, Jakarta\nIndonesia"
+      content: "Jl. Siti Mariah, Bandung 40231\nIndonesia"
     },
     {
       icon: Phone,

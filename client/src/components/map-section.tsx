@@ -15,8 +15,8 @@ export default function MapSection({ showOfficeLocation = true }: MapSectionProp
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  // Office location coordinates (Jakarta area - Jl. Siti Mariah)
-  const officeLocation: [number, number] = [106.8456, -6.2088]; // Approximate Jakarta coordinates
+  // Office location coordinates (Bandung area - Jl. Siti Mariah)
+  const officeLocation: [number, number] = [107.619, -6.914]; // Bandung coordinates
 
   useEffect(() => {
     if (map.current) return; // Initialize map only once
@@ -55,7 +55,7 @@ export default function MapSection({ showOfficeLocation = true }: MapSectionProp
             .setLngLat(officeLocation)
             .setPopup(
               new mapboxgl.Popup({ offset: 25 }).setHTML(
-                '<div class="p-2"><h3 class="font-bold text-green-700">RR Travel</h3><p class="text-sm">Jl. Siti Mariah<br/>Jakarta, Indonesia</p></div>'
+                '<div class="p-2"><h3 class="font-bold text-green-700">RR Travel</h3><p class="text-sm">Jl. Siti Mariah<br/>Bandung 40231, Indonesia</p></div>'
               )
             )
             .addTo(map.current);

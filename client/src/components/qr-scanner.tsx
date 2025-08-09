@@ -191,14 +191,15 @@ export default function QRScanner({ isOpen, onClose }: QRScannerProps) {
 
         <div className="space-y-4">
           {!isScanning && !scannedPackage && !error && (
-            <div className="text-center py-6">
-              <Camera className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600 mb-4">
-                Scan QR code untuk melihat detail paket wisata RR Travel
+            <div className="text-center py-8">
+              <QrCode className="w-16 h-16 text-green-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-gray-800 mb-2">Scan QR Code RR Travel</h3>
+              <p className="text-gray-600 mb-6 max-w-sm mx-auto">
+                Scan QR code khusus dari brosur atau materi promosi RR Travel untuk melihat detail paket wisata
               </p>
               <Button onClick={handleStartScanning} className="bg-green-600 hover:bg-green-700">
-                <QrCode className="w-4 h-4 mr-2" />
-                Mulai Scan
+                <Camera className="w-4 h-4 mr-2" />
+                Mulai Scan QR Code
               </Button>
             </div>
           )}
@@ -230,9 +231,12 @@ export default function QRScanner({ isOpen, onClose }: QRScannerProps) {
             <div className="text-center py-6">
               <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
                 <p className="text-red-600 text-sm">{error}</p>
+                <p className="text-red-500 text-xs mt-2">
+                  Pastikan QR code berasal dari brosur atau materi promosi resmi RR Travel
+                </p>
               </div>
               <Button onClick={handleStartScanning} variant="outline">
-                Coba Lagi
+                Scan Ulang
               </Button>
             </div>
           )}
@@ -301,31 +305,7 @@ export default function QRScanner({ isOpen, onClose }: QRScannerProps) {
             </Card>
           )}
 
-          {/* Demo QR codes info */}
-          {!isScanning && !scannedPackage && (
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <h4 className="font-semibold text-blue-800 mb-2">QR Code Demo:</h4>
-              <p className="text-blue-700 text-sm mb-2">Coba scan QR code dengan kode:</p>
-              <div className="grid grid-cols-2 gap-2 text-xs">
-                <div className="bg-white p-2 rounded border">
-                  <strong>BALI001</strong><br/>
-                  Paket Bali Premium
-                </div>
-                <div className="bg-white p-2 rounded border">
-                  <strong>YOGYA002</strong><br/>
-                  Yogyakarta Heritage
-                </div>
-                <div className="bg-white p-2 rounded border">
-                  <strong>LOMBOK003</strong><br/>
-                  Lombok Adventure
-                </div>
-                <div className="bg-white p-2 rounded border">
-                  <strong>RAJAAMPAT004</strong><br/>
-                  Raja Ampat Diving
-                </div>
-              </div>
-            </div>
-          )}
+
         </div>
       </DialogContent>
     </Dialog>
