@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
-import { Search, Menu } from "lucide-react";
+import { Search, Menu, QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import QRScanner from "@/components/qr-scanner";
 import logoImage from "@assets/ChatGPT Image Aug 9, 2025, 11_33_24 AM_1754716649787.png";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isQRScannerOpen, setIsQRScannerOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,6 +54,18 @@ export default function Header() {
             </div>
             <Button className="bg-primary-green text-white px-6 ml-2 rounded-default hover:bg-green-600 transition-colors">
               Cari
+            </Button>
+          </div>
+
+          {/* QR Scanner Button */}
+          <div className="hidden md:flex">
+            <Button 
+              variant="outline"
+              onClick={() => setIsQRScannerOpen(true)}
+              className="border-primary-green text-primary-green hover:bg-primary-green hover:text-white transition-colors"
+            >
+              <QrCode className="h-4 w-4 mr-2" />
+              Scan QR
             </Button>
           </div>
 
@@ -147,11 +161,27 @@ export default function Header() {
                 >
                   Kontak
                 </button>
+                <button 
+                  onClick={() => {
+                    setIsQRScannerOpen(true);
+                    setIsMobileMenuOpen(false);
+                  }} 
+                  className="block w-full text-left py-3 px-2 text-primary-green hover:bg-green-50 font-medium transition-colors rounded-lg border-t border-gray-200"
+                >
+                  <QrCode className="inline h-4 w-4 mr-2" />
+                  Scan QR Paket Wisata
+                </button>
               </nav>
             </div>
           </div>
         )}
       </div>
+
+      {/* QR Scanner Dialog */}
+      <QRScanner 
+        isOpen={isQRScannerOpen}
+        onClose={() => setIsQRScannerOpen(false)}
+      />
     </header>
   );
 }
