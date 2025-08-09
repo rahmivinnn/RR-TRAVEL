@@ -24,8 +24,8 @@ export default function HeroSection() {
         </p>
         
         {/* Search Widget */}
-        <div className="bg-white rounded-default p-6 shadow-xl max-w-2xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-4">
+        <div className="bg-white rounded-default p-4 md:p-6 shadow-xl max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
             <div>
               <Label className="block text-gray-700 text-sm font-medium mb-2">Destinasi</Label>
               <Select>
@@ -47,7 +47,7 @@ export default function HeroSection() {
                 className="w-full border-gray-300 rounded-default focus:ring-2 focus:ring-primary-green"
               />
             </div>
-            <div>
+            <div className="sm:col-span-2 md:col-span-1">
               <Label className="block text-gray-700 text-sm font-medium mb-2">Peserta</Label>
               <Select>
                 <SelectTrigger className="w-full border-gray-300 rounded-default focus:ring-2 focus:ring-primary-green">
@@ -61,7 +61,7 @@ export default function HeroSection() {
               </Select>
             </div>
           </div>
-          <Button className="w-full bg-primary-green text-white py-3 rounded-default mt-4 hover:bg-green-600 transition-colors font-semibold">
+          <Button className="w-full bg-primary-green text-white py-2 md:py-3 rounded-default mt-3 md:mt-4 hover:bg-green-600 transition-colors font-semibold text-sm md:text-base">
             Cari Paket Wisata
           </Button>
         </div>

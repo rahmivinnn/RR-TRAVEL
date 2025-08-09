@@ -148,7 +148,7 @@ export default function ContactSection() {
           <div className="bg-gray-50 rounded-default p-8">
             <h3 className="text-2xl font-bold text-dark-forest mb-6">Kirim Pesan</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <Label className="block text-gray-700 text-sm font-medium mb-2">Nama Lengkap *</Label>
                   <Input
@@ -173,7 +173,7 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <Label className="block text-gray-700 text-sm font-medium mb-2">No. Telepon *</Label>
                   <Input

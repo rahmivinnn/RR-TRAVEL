@@ -6,6 +6,7 @@ import logoImage from "@assets/ChatGPT Image Aug 9, 2025, 11_33_24 AM_1754716649
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +22,8 @@ export default function Header() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    // Close mobile menu after navigation
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -87,10 +90,67 @@ export default function Header() {
           </nav>
 
           {/* Mobile Menu Button */}
-          <Button variant="ghost" className="lg:hidden text-dark-forest">
+          <Button 
+            variant="ghost" 
+            className="lg:hidden text-dark-forest"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
             <Menu className="h-6 w-6" />
           </Button>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden bg-white border-t border-gray-200">
+            <div className="px-4 py-2 space-y-2">
+              {/* Mobile Search */}
+              <div className="flex mb-4">
+                <Input 
+                  type="text" 
+                  placeholder="Cari destinasi..." 
+                  className="flex-1 border-gray-300 rounded-l-default focus:ring-2 focus:ring-primary-green focus:border-transparent"
+                />
+                <Button className="bg-primary-green text-white px-4 rounded-r-default hover:bg-green-600 transition-colors">
+                  Cari
+                </Button>
+              </div>
+              
+              {/* Mobile Navigation */}
+              <nav className="space-y-2">
+                <button 
+                  onClick={() => scrollToSection('home')} 
+                  className="block w-full text-left py-3 px-2 text-dark-forest hover:text-primary-green hover:bg-gray-50 font-medium transition-colors rounded-lg"
+                >
+                  Beranda
+                </button>
+                <button 
+                  onClick={() => scrollToSection('packages')} 
+                  className="block w-full text-left py-3 px-2 text-dark-forest hover:text-primary-green hover:bg-gray-50 font-medium transition-colors rounded-lg"
+                >
+                  Paket Wisata
+                </button>
+                <button 
+                  onClick={() => scrollToSection('destinations')} 
+                  className="block w-full text-left py-3 px-2 text-dark-forest hover:text-primary-green hover:bg-gray-50 font-medium transition-colors rounded-lg"
+                >
+                  Destinasi
+                </button>
+                <button 
+                  onClick={() => scrollToSection('about')} 
+                  className="block w-full text-left py-3 px-2 text-dark-forest hover:text-primary-green hover:bg-gray-50 font-medium transition-colors rounded-lg"
+                >
+                  Tentang Kami
+                </button>
+                <button 
+                  onClick={() => scrollToSection('contact')} 
+                  className="block w-full text-left py-3 px-2 text-dark-forest hover:text-primary-green hover:bg-gray-50 font-medium transition-colors rounded-lg"
+                >
+                  Kontak
+                </button>
+              </nav>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );

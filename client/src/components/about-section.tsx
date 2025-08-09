@@ -67,7 +67,7 @@ export default function AboutSection() {
         </div>
 
         {/* Stats Section */}
-        <div className="grid md:grid-cols-4 gap-8 mt-16 text-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-12 md:mt-16 text-center">
           {stats.map((stat, index) => (
             <div key={index}>
               <div className="text-4xl font-bold text-primary-green mb-2">{stat.number}</div>
