@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useLocation } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Star, Clock, Users, MapPin, Camera, Utensils, Car, X } from "lucide-react";
+import { Star, Clock, Users, MapPin, Camera, Utensils, Car, X, CreditCard } from "lucide-react";
+import type { TravelPackage } from "@shared/schema";
 
 const packages = [
   {
