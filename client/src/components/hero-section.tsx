@@ -29,7 +29,7 @@ export default function HeroSection() {
             <div>
               <Label className="block text-gray-900 text-sm font-medium mb-2">Destinasi</Label>
               <Select>
-                <SelectTrigger className="w-full border-gray-300 rounded-default focus:ring-2 focus:ring-primary-green">
+                <SelectTrigger className="w-full border-gray-300 rounded-default focus:ring-2 focus:ring-primary-green text-gray-900 placeholder:text-gray-500">
                   <SelectValue placeholder="Pilih Destinasi" />
                 </SelectTrigger>
                 <SelectContent>
@@ -44,13 +44,13 @@ export default function HeroSection() {
               <Label className="block text-gray-900 text-sm font-medium mb-2">Tanggal</Label>
               <Input 
                 type="date" 
-                className="w-full border-gray-300 rounded-default focus:ring-2 focus:ring-primary-green"
+                className="w-full border-gray-300 rounded-default focus:ring-2 focus:ring-primary-green text-gray-900"
               />
             </div>
             <div className="sm:col-span-2 md:col-span-1">
               <Label className="block text-gray-900 text-sm font-medium mb-2">Peserta</Label>
               <Select>
-                <SelectTrigger className="w-full border-gray-300 rounded-default focus:ring-2 focus:ring-primary-green">
+                <SelectTrigger className="w-full border-gray-300 rounded-default focus:ring-2 focus:ring-primary-green text-gray-900 placeholder:text-gray-500">
                   <SelectValue placeholder="Jumlah Peserta" />
                 </SelectTrigger>
                 <SelectContent>
