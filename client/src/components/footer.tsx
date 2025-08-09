@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Twitter, Youtube, MapPin, Phone, Mail } from "lucide-react";
+import logoImage from "@assets/ChatGPT Image Aug 9, 2025, 11_33_24 AM_1754716649787.png";
 
 export default function Footer() {
   const scrollToSection = (sectionId: string) => {
@@ -38,9 +39,11 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-3 mb-6">
-              <div className="bg-primary-green text-white w-10 h-10 rounded-default flex items-center justify-center font-bold text-xl">
-                RR
-              </div>
+              <img 
+                src={logoImage} 
+                alt="RR Travel Logo" 
+                className="w-12 h-12 object-contain"
+              />
               <span className="text-2xl font-bold">RR Travel</span>
             </div>
             <p className="text-gray-300 mb-4">

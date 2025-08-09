@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Search, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import logoImage from "@assets/ChatGPT Image Aug 9, 2025, 11_33_24 AM_1754716649787.png";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,9 +29,11 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="bg-primary-green text-white w-10 h-10 rounded-default flex items-center justify-center font-bold text-xl">
-              RR
-            </div>
+            <img 
+              src={logoImage} 
+              alt="RR Travel Logo" 
+              className="w-12 h-12 object-contain"
+            />
             <span className="text-2xl font-bold text-dark-forest">RR Travel</span>
           </div>
 

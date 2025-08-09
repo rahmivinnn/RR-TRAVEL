@@ -94,6 +94,7 @@ export class MemStorage implements IStorage {
     const pkg: TravelPackage = { 
       ...insertPackage, 
       id,
+      rating: insertPackage.rating || 5,
       createdAt: new Date()
     };
     this.travelPackages.set(id, pkg);
@@ -109,6 +110,7 @@ export class MemStorage implements IStorage {
     const inquiry: Inquiry = { 
       ...insertInquiry, 
       id,
+      destination: insertInquiry.destination || null,
       createdAt: new Date()
     };
     this.inquiries.set(id, inquiry);
