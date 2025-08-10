@@ -4,6 +4,7 @@ import HeroSection from "@/components/hero-section";
 import CEOSection from "@/components/ceo-section";
 import FeaturedPackages from "@/components/featured-packages-new";
 import ServicesSection from "@/components/services-section";
+import MapSection from "@/components/map-section";
 import Footer from "@/components/footer";
 import Chatbot from "@/components/chatbot";
 import { Button } from "@/components/ui/button";
