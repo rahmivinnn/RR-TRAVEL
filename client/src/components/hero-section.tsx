@@ -85,7 +85,15 @@ export default function HeroSection() {
               </Select>
             </div>
           </div>
-          <Button className="w-full bg-primary-green text-white py-2 md:py-3 rounded-default mt-3 md:mt-4 hover:bg-green-600 transition-colors font-semibold text-sm md:text-base">
+          <Button 
+            onClick={() => {
+              const packagesSection = document.getElementById('packages');
+              if (packagesSection) {
+                packagesSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="w-full bg-primary-green text-white py-2 md:py-3 rounded-default mt-3 md:mt-4 hover:bg-green-600 transition-colors font-semibold text-sm md:text-base"
+          >
             Cari Paket Wisata
           </Button>
         </motion.div>
