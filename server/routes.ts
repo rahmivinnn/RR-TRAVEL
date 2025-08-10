@@ -265,7 +265,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/config", async (req, res) => {
     try {
       res.json({
-        mapboxToken: process.env.MAPBOX_PUBLIC_KEY || ''
+        mapboxToken: process.env.MAPBOX_PUBLIC_KEY || 'pk.eyJ1IjoidmluYTk4IiwiYSI6ImNtN3I3eDF6ZTB2OW0yam9kdzFxdndhdTkifQ.HNqbNgBUAoBPYmoAMISdaw'
       });
     } catch (error) {
       res.status(500).json({ message: "Failed to get config" });
