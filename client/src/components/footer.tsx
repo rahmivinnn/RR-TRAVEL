@@ -12,7 +12,7 @@ export default function Footer() {
           <AnimatedSection animation="fadeUp" className="lg:col-span-2">
             <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-green-400">RR Travel</h3>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Partner terpercaya untuk menjelajahi keindahan Indonesia. Dengan pengalaman lebih dari 15 tahun, 
+              Partner terpercaya untuk menjelajahi keindahan Indonesia. Dengan pengalaman 5 tahun, 
               kami menyediakan paket wisata berkualitas tinggi dan pelayanan prima untuk setiap perjalanan Anda.
             </p>
             

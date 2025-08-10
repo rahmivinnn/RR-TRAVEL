@@ -80,10 +80,9 @@ export default function CEOSection() {
                   <div className="bg-green-50 rounded-lg p-4">
                     <h4 className="font-semibold text-gray-900 mb-2">Pengalaman & Prestasi</h4>
                     <ul className="text-sm text-gray-700 space-y-1">
-                      <li>• 15+ tahun pengalaman di industri pariwisata Indonesia</li>
+                      <li>• 5 tahun pengalaman di industri pariwisata Indonesia</li>
                       <li>• Telah mengorganisir 500+ trip ke seluruh Nusantara</li>
                       <li>• Penghargaan "Best Travel Organizer" 2023</li>
-                      <li>• Alumni Sekolah Tinggi Pariwisata Bandung</li>
                     </ul>
                   </div>
                 </div>
