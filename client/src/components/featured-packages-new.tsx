@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Star, Clock, Users, MapPin, MessageCircle, CreditCard, X } from "lucide-react";
+import { motion } from "framer-motion";
+import AnimatedSection from "@/components/animated-section";
 import type { TravelPackage } from "@shared/schema";
 
 export default function FeaturedPackages() {
@@ -119,23 +121,32 @@ export default function FeaturedPackages() {
   }
 
   return (
-    <section id="packages" className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Paket Wisata Terpopuler</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+    <section id="packages" className="py-12 sm:py-16 lg:py-20 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection animation="fadeUp" className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Paket Wisata Terpopuler</h2>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
             Pilihan paket tour terbaik dengan harga terjangkau dan pelayanan memuaskan
           </p>
-        </div>
+        </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {packages.map((pkg) => (
-            <Card 
-              key={pkg.id} 
-              className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all cursor-pointer transform hover:scale-105 duration-200 overflow-hidden"
-              onClick={() => handlePackageClick(pkg)}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+          {packages.map((pkg, index) => (
+            <AnimatedSection 
+              key={pkg.id}
+              animation="fadeUp"
+              delay={index * 0.2}
             >
-              <div className="relative">
+              <motion.div
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.3 }}
+                className="h-full"
+              >
+                <Card 
+                  className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all cursor-pointer overflow-hidden h-full flex flex-col"
+                  onClick={() => handlePackageClick(pkg)}
+                >
+                  <div className="relative">
                 <img 
                   src={pkg.imageUrl} 
                   alt={`${pkg.name} tour package`} 
@@ -186,7 +197,9 @@ export default function FeaturedPackages() {
                   </Button>
                 </div>
               </CardContent>
-            </Card>
+                </Card>
+              </motion.div>
+            </AnimatedSection>
           ))}
         </div>
 

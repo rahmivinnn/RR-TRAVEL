@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { motion } from "framer-motion";
+import AnimatedSection from "@/components/animated-section";
 
 export default function HeroSection() {
   return (
@@ -14,17 +16,39 @@ export default function HeroSection() {
         }}
       />
       
-      <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+      <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight"
+        >
           Jelajahi Keindahan <br />
-          <span className="text-light-green">Indonesia Bersama Kami</span>
-        </h1>
-        <p className="text-xl md:text-2xl mb-8 text-gray-200">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-light-green"
+          >
+            Indonesia Bersama Kami
+          </motion.span>
+        </motion.h1>
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-lg sm:text-xl lg:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto"
+        >
           Temukan pengalaman tak terlupakan di destinasi wisata terbaik Indonesia dengan paket tour terpercaya
-        </p>
+        </motion.p>
         
         {/* Search Widget */}
-        <div className="bg-white rounded-default p-4 md:p-6 shadow-xl max-w-2xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="bg-white rounded-default p-4 sm:p-6 lg:p-8 shadow-xl max-w-4xl mx-auto"
+        >
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
             <div>
               <Label className="block text-gray-900 text-sm font-medium mb-2">Destinasi</Label>
@@ -64,7 +88,7 @@ export default function HeroSection() {
           <Button className="w-full bg-primary-green text-white py-2 md:py-3 rounded-default mt-3 md:mt-4 hover:bg-green-600 transition-colors font-semibold text-sm md:text-base">
             Cari Paket Wisata
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

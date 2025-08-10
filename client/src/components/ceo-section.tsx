@@ -1,39 +1,48 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Quote, Linkedin, Mail, Phone } from "lucide-react";
+import { motion } from "framer-motion";
+import AnimatedSection from "@/components/animated-section";
 import founderImage from "@assets/IMG_20250506_100848-removebg-preview_1754716476473.png";
 
 export default function CEOSection() {
   return (
-    <section className="py-16 bg-gradient-to-r from-green-50 to-emerald-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-green-50 to-emerald-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection animation="fadeUp" className="text-center mb-8 sm:mb-12 lg:mb-16">
           <Badge className="bg-green-100 text-green-800 px-4 py-2 text-sm font-medium mb-4">
             Pimpinan Perusahaan
           </Badge>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Meet Our Founder & CEO</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Meet Our Founder & CEO</h2>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
             Dipimpin oleh visioner yang berpengalaman dalam industri pariwisata Indonesia
           </p>
-        </div>
+        </AnimatedSection>
 
-        <div className="max-w-4xl mx-auto">
+        <AnimatedSection animation="scaleUp" delay={0.3} className="max-w-5xl mx-auto">
           <Card className="bg-white shadow-xl rounded-2xl overflow-hidden">
-            <CardContent className="p-8 md:p-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <CardContent className="p-6 sm:p-8 lg:p-12">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 {/* Foto CEO */}
-                <div className="text-center lg:text-left">
+                <AnimatedSection animation="slideLeft" delay={0.5} className="text-center lg:text-left">
                   <div className="relative inline-block">
-                    <img 
+                    <motion.img 
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
                       src={founderImage}
                       alt="Reza Pahlawan - Founder & CEO RR Travel"
-                      className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-2xl shadow-2xl mx-auto lg:mx-0"
+                      className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 object-cover rounded-2xl shadow-2xl mx-auto lg:mx-0"
                     />
-                    <div className="absolute -bottom-4 -right-4 bg-green-600 text-white p-3 rounded-full shadow-lg">
-                      <Quote className="w-6 h-6" />
-                    </div>
+                    <motion.div 
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ delay: 1, duration: 0.5 }}
+                      className="absolute -bottom-3 -right-3 bg-green-600 text-white p-3 rounded-full shadow-lg"
+                    >
+                      <Quote className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </motion.div>
                   </div>
-                </div>
+                </AnimatedSection>
 
                 {/* Informasi CEO */}
                 <div className="space-y-6">
@@ -81,40 +90,44 @@ export default function CEOSection() {
               </div>
             </CardContent>
           </Card>
-        </div>
+        </AnimatedSection>
 
         {/* Visi Misi */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-4xl mx-auto">
-          <Card className="bg-white shadow-lg">
-            <CardContent className="p-6">
-              <h4 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
-                <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center mr-3">
-                  <span className="text-white font-bold text-sm">V</span>
-                </div>
-                Visi Kami
-              </h4>
-              <p className="text-gray-600 leading-relaxed">
-                Menjadi perusahaan tour & travel terdepan di Indonesia yang memberikan 
-                pengalaman wisata berkualitas tinggi dan berkesan bagi setiap pelanggan.
-              </p>
-            </CardContent>
-          </Card>
+        <AnimatedSection animation="fadeUp" delay={0.7} className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mt-8 sm:mt-12 max-w-5xl mx-auto">
+          <AnimatedSection animation="slideLeft" delay={0.9}>
+            <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <CardContent className="p-6">
+                <h4 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                  <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-sm">V</span>
+                  </div>
+                  Visi Kami
+                </h4>
+                <p className="text-gray-600 leading-relaxed">
+                  Menjadi perusahaan tour & travel terdepan di Indonesia yang memberikan 
+                  pengalaman wisata berkualitas tinggi dan berkesan bagi setiap pelanggan.
+                </p>
+              </CardContent>
+            </Card>
+          </AnimatedSection>
 
-          <Card className="bg-white shadow-lg">
-            <CardContent className="p-6">
-              <h4 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
-                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
-                  <span className="text-white font-bold text-sm">M</span>
-                </div>
-                Misi Kami
-              </h4>
-              <p className="text-gray-600 leading-relaxed">
-                Menghadirkan paket wisata inovatif dengan pelayanan prima, 
-                harga terjangkau, dan komitmen terhadap kelestarian alam Indonesia.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
+          <AnimatedSection animation="slideRight" delay={1.1}>
+            <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <CardContent className="p-6">
+                <h4 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                  <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-sm">M</span>
+                  </div>
+                  Misi Kami
+                </h4>
+                <p className="text-gray-600 leading-relaxed">
+                  Menghadirkan paket wisata inovatif dengan pelayanan prima, 
+                  harga terjangkau, dan komitmen terhadap kelestarian alam Indonesia.
+                </p>
+              </CardContent>
+            </Card>
+          </AnimatedSection>
+        </AnimatedSection>
       </div>
     </section>
   );

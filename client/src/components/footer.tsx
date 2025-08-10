@@ -1,126 +1,181 @@
-import { Facebook, Instagram, Twitter, Youtube, MapPin, Phone, Mail } from "lucide-react";
-import logoImage from "@assets/ChatGPT Image Aug 9, 2025, 11_33_24 AM_1754716649787.png";
+import { motion } from "framer-motion";
+import { Mail, Phone, MapPin, Facebook, Instagram, Twitter } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import AnimatedSection from "@/components/animated-section";
 
 export default function Footer() {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const quickLinks = [
-    { name: "Beranda", id: "home" },
-    { name: "Paket Wisata", id: "packages" },
-    { name: "Destinasi", id: "destinations" },
-    { name: "Tentang Kami", id: "about" },
-    { name: "Kontak", id: "contact" }
-  ];
-
-  const destinations = [
-    "Bali",
-    "Yogyakarta", 
-    "Lombok",
-    "Raja Ampat",
-    "Bromo Tengger"
-  ];
-
-  const socialLinks = [
-    { icon: Facebook, href: "#" },
-    { icon: Instagram, href: "#" },
-    { icon: Twitter, href: "#" },
-    { icon: Youtube, href: "#" }
-  ];
-
   return (
-    <footer className="bg-dark-forest text-white py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8">
+    <footer className="bg-gray-900 text-white pt-12 sm:pt-16 lg:pt-20 pb-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
-          <div>
-            <div className="flex items-center space-x-3 mb-6">
-              <img 
-                src={logoImage} 
-                alt="RR Travel Logo" 
-                className="w-12 h-12 object-contain"
-              />
-              <span className="text-2xl font-bold">RR Travel</span>
-            </div>
-            <p className="text-gray-300 mb-4">
-              Menyediakan pengalaman wisata terbaik di Indonesia dengan layanan professional dan terpercaya.
+          <AnimatedSection animation="fadeUp" className="lg:col-span-2">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-green-400">RR Travel</h3>
+            <p className="text-gray-300 mb-6 leading-relaxed">
+              Partner terpercaya untuk menjelajahi keindahan Indonesia. Dengan pengalaman lebih dari 15 tahun, 
+              kami menyediakan paket wisata berkualitas tinggi dan pelayanan prima untuk setiap perjalanan Anda.
             </p>
-            <div className="flex space-x-3">
-              {socialLinks.map((social, index) => {
-                const IconComponent = social.icon;
-                return (
-                  <a 
-                    key={index}
-                    href={social.href} 
-                    className="text-gray-300 hover:text-primary-green transition-colors"
-                  >
-                    <IconComponent className="w-5 h-5" />
-                  </a>
-                );
-              })}
+            
+            <div className="space-y-4">
+              <motion.div
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.3 }}
+                className="flex items-center text-gray-300"
+              >
+                <MapPin className="w-5 h-5 mr-3 text-green-400" />
+                <span>Jl. Siti Mariah, Bandung 40231</span>
+              </motion.div>
+              <motion.div
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.3 }}
+                className="flex items-center text-gray-300"
+              >
+                <Phone className="w-5 h-5 mr-3 text-green-400" />
+                <span>+62 821-1566-5661</span>
+              </motion.div>
+              <motion.div
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.3 }}
+                className="flex items-center text-gray-300"
+              >
+                <Mail className="w-5 h-5 mr-3 text-green-400" />
+                <span>info@rrtravel.com</span>
+              </motion.div>
             </div>
-          </div>
+          </AnimatedSection>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-bold mb-6">Quick Links</h4>
+          <AnimatedSection animation="fadeUp" delay={0.2}>
+            <h4 className="text-lg font-semibold mb-6 text-green-400">Menu Utama</h4>
             <ul className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <button 
-                    onClick={() => scrollToSection(link.id)}
-                    className="text-gray-300 hover:text-primary-green transition-colors"
+              {[
+                { name: "Beranda", href: "#" },
+                { name: "Paket Wisata", href: "#packages" },
+                { name: "Tentang Kami", href: "#about" },
+                { name: "Galeri", href: "#gallery" },
+                { name: "Kontak", href: "#contact" }
+              ].map((link) => (
+                <li key={link.name}>
+                  <motion.a
+                    whileHover={{ x: 5 }}
+                    transition={{ duration: 0.3 }}
+                    href={link.href}
+                    className="text-gray-300 hover:text-green-400 transition-colors duration-300"
                   >
                     {link.name}
-                  </button>
+                  </motion.a>
                 </li>
               ))}
             </ul>
-          </div>
+          </AnimatedSection>
 
-          {/* Destinations */}
-          <div>
-            <h4 className="text-lg font-bold mb-6">Destinasi Populer</h4>
+          {/* Popular Destinations */}
+          <AnimatedSection animation="fadeUp" delay={0.4}>
+            <h4 className="text-lg font-semibold mb-6 text-green-400">Destinasi Populer</h4>
             <ul className="space-y-3">
-              {destinations.map((destination, index) => (
-                <li key={index}>
-                  <a href="#" className="text-gray-300 hover:text-primary-green transition-colors">
+              {[
+                "Bali",
+                "Yogyakarta", 
+                "Lombok",
+                "Raja Ampat",
+                "Bromo Tengger",
+                "Flores"
+              ].map((destination) => (
+                <li key={destination}>
+                  <motion.span
+                    whileHover={{ x: 5 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-gray-300 hover:text-green-400 transition-colors duration-300 cursor-pointer block"
+                  >
                     {destination}
-                  </a>
+                  </motion.span>
                 </li>
               ))}
             </ul>
-          </div>
+          </AnimatedSection>
+        </div>
 
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-lg font-bold mb-6">Kontak</h4>
-            <div className="space-y-3">
-              <p className="text-gray-300 flex items-start">
-                <MapPin className="w-4 h-4 mt-1 mr-3 text-primary-green flex-shrink-0" />
-                Jl. Siti Mariah<br />Jakarta, Indonesia
+        {/* Social Media & Newsletter */}
+        <AnimatedSection animation="fadeUp" delay={0.6} className="mt-12 sm:mt-16 pt-8 border-t border-gray-700">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+            {/* Social Media */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-green-400">Ikuti Kami</h4>
+              <div className="flex space-x-4">
+                {[
+                  { icon: <Facebook className="w-5 h-5" />, href: "#", name: "Facebook" },
+                  { icon: <Instagram className="w-5 h-5" />, href: "#", name: "Instagram" },
+                  { icon: <Twitter className="w-5 h-5" />, href: "#", name: "Twitter" }
+                ].map((social) => (
+                  <motion.a
+                    key={social.name}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    href={social.href}
+                    className="bg-gray-800 p-3 rounded-full text-gray-300 hover:bg-green-600 hover:text-white transition-colors duration-300"
+                    aria-label={social.name}
+                  >
+                    {social.icon}
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+
+            {/* Newsletter */}
+            <div className="max-w-md">
+              <h4 className="text-lg font-semibold mb-4 text-green-400">Newsletter</h4>
+              <p className="text-gray-300 mb-4 text-sm">
+                Dapatkan update paket wisata terbaru dan penawaran spesial
               </p>
-              <p className="text-gray-300 flex items-center">
-                <Phone className="w-4 h-4 mr-3 text-primary-green" />
-                082115665661
-              </p>
-              <p className="text-gray-300 flex items-center">
-                <Mail className="w-4 h-4 mr-3 text-primary-green" />
-                info@rrtravel.com
-              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="email"
+                  placeholder="Email Anda"
+                  className="flex-1 px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-400"
+                />
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300"
+                >
+                  Subscribe
+                </motion.button>
+              </div>
             </div>
           </div>
-        </div>
+        </AnimatedSection>
 
-        <div className="border-t border-gray-700 mt-12 pt-8 text-center">
-          <p className="text-gray-300">
-            © 2024 RR Travel. All rights reserved. | Designed with ❤️ for Indonesia Tourism
-          </p>
-        </div>
+        {/* Bottom Copyright */}
+        <AnimatedSection animation="fadeUp" delay={0.8} className="mt-8 sm:mt-12 pt-6 border-t border-gray-700">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-center sm:text-left">
+            <p className="text-gray-400 text-sm">
+              © 2025 RR Travel. All rights reserved. Designed with ❤️ for Indonesia
+            </p>
+            <div className="flex flex-wrap justify-center sm:justify-end gap-4 text-sm">
+              <motion.a
+                whileHover={{ y: -1 }}
+                href="#"
+                className="text-gray-400 hover:text-green-400 transition-colors duration-300"
+              >
+                Privacy Policy
+              </motion.a>
+              <motion.a
+                whileHover={{ y: -1 }}
+                href="#"
+                className="text-gray-400 hover:text-green-400 transition-colors duration-300"
+              >
+                Terms of Service
+              </motion.a>
+              <motion.a
+                whileHover={{ y: -1 }}
+                href="#"
+                className="text-gray-400 hover:text-green-400 transition-colors duration-300"
+              >
+                FAQ
+              </motion.a>
+            </div>
+          </div>
+        </AnimatedSection>
       </div>
     </footer>
   );
