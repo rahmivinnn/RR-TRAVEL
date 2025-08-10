@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useLocation } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Star, Clock, Users, MapPin, MessageCircle, X } from "lucide-react";
+import { Star, Clock, Users, MapPin, MessageCircle, CreditCard, X } from "lucide-react";
 import type { TravelPackage } from "@shared/schema";
 
 export default function FeaturedPackages() {
   const [selectedPackage, setSelectedPackage] = useState<TravelPackage | null>(null);
+  const [, setLocation] = useLocation();
 
   // Fetch travel packages from API
   const { data: packages, isLoading, error } = useQuery<TravelPackage[]>({
@@ -48,6 +50,10 @@ export default function FeaturedPackages() {
     const message = `Halo, saya tertarik dengan paket wisata ${packageName}. Bisa tolong berikan informasi lebih detail?`;
     const whatsappUrl = `https://wa.me/6282115665661?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
+  };
+
+  const handleBookNow = (packageId: string) => {
+    setLocation(`/booking/${packageId}`);
   };
 
   const closeModal = () => {
@@ -172,11 +178,11 @@ export default function FeaturedPackages() {
                     className="bg-green-600 hover:bg-green-700 text-white"
                     onClick={(e) => {
                       e.stopPropagation();
-                      handleWhatsAppContact(pkg.name);
+                      handleBookNow(pkg.id);
                     }}
                   >
-                    <MessageCircle className="w-4 h-4 mr-2" />
-                    Tanya via WA
+                    <CreditCard className="w-4 h-4 mr-2" />
+                    Book Now
                   </Button>
                 </div>
               </CardContent>
@@ -264,6 +270,17 @@ export default function FeaturedPackages() {
                       <div className="space-y-3">
                         <Button 
                           className="w-full bg-green-600 hover:bg-green-700 text-white text-lg py-3"
+                          onClick={() => {
+                            closeModal();
+                            handleBookNow(selectedPackage.id);
+                          }}
+                        >
+                          <CreditCard className="w-5 h-5 mr-2" />
+                          Book Sekarang
+                        </Button>
+                        <Button 
+                          variant="outline" 
+                          className="w-full border-green-600 text-green-600 hover:bg-green-50"
                           onClick={() => {
                             closeModal();
                             handleWhatsAppContact(selectedPackage.name);
