@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 
 export default function HeroSection() {
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center">
+    <section id="home" className="relative min-h-screen flex items-center justify-center py-20">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
