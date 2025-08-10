@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RR Travel - Explore Indonesia's Beautiful Destinations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'primary-green': '#5da96a',
+                    'light-green': '#a5e29e',
+                    'dark-forest': '#0c1c10',
+                    'warm-brown': '#c07035',
+                },
+                fontFamily: {
+                    'inter': ['Inter', 'sans-serif'],
+                },
+                borderRadius: {
+                    'default': '16px',
+                }
+            }
+        }
+    };
+    </script>
+</head>
+<body class="font-inter bg-gray-50">
+
+<!-- @COMPONENT: Header [Navigation bar with logo, menu, and search] -->
+<header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+            <!-- Logo -->
+            <div class="flex items-center space-x-3">
+                <div class="bg-primary-green text-white w-10 h-10 rounded-default flex items-center justify-center font-bold text-xl">
+                    RR
+                </div>
+                <span class="text-2xl font-bold text-dark-forest">RR Travel</span>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="hidden md:flex flex-1 max-w-xl mx-8">
+                <div class="relative w-full">
+                    <input type="text" placeholder="Cari destinasi, paket wisata..." 
+                           class="w-full px-4 py-2 pl-10 border border-gray-300 rounded-default focus:ring-2 focus:ring-primary-green focus:border-transparent"
+                           data-mock="true">
+                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                </div>
+                <button class="bg-primary-green text-white px-6 py-2 rounded-default ml-2 hover:bg-green-600 transition-colors">
+                    Cari
+                </button>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="hidden lg:flex space-x-8">
+                <a href="#home" class="text-dark-forest hover:text-primary-green font-medium">Beranda</a>
+                <a href="#packages" class="text-dark-forest hover:text-primary-green font-medium">Paket Wisata</a>
+                <a href="#destinations" class="text-dark-forest hover:text-primary-green font-medium">Destinasi</a>
+                <a href="#about" class="text-dark-forest hover:text-primary-green font-medium">Tentang Kami</a>
+                <a href="#contact" class="text-dark-forest hover:text-primary-green font-medium">Kontak</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden text-dark-forest">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </div>
+</header>
+<!-- @END_COMPONENT: Header -->
+
+<!-- @COMPONENT: HeroSection [Main banner with call-to-action] -->
+<section id="home" class="relative h-screen flex items-center justify-center">
+    <!-- Beautiful tropical beach landscape with crystal clear water and palm trees -->
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+         style="background-image: linear-gradient(rgba(12, 28, 16, 0.4), rgba(12, 28, 16, 0.4)), url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080')">
+    </div>
+    
+    <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            Jelajahi Keindahan <br>
+            <span class="text-light-green">Indonesia Bersama Kami</span>
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 text-gray-200">
+            Temukan pengalaman tak terlupakan di destinasi wisata terbaik Indonesia dengan paket tour terpercaya
+        </p>
+        
+        <!-- Search Widget -->
+        <div class="bg-white rounded-default p-6 shadow-xl max-w-2xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-gray-700 text-sm font-medium mb-2">Destinasi</label>
+                    <select class="w-full p-3 border border-gray-300 rounded-default focus:ring-2 focus:ring-primary-green" data-mock="true">
+                        <option>Pilih Destinasi</option>
+                        <option>Bali</option>
+                        <option>Yogyakarta</option>
+                        <option>Lombok</option>
+                        <option>Raja Ampat</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-medium mb-2">Tanggal</label>
+                    <input type="date" class="w-full p-3 border border-gray-300 rounded-default focus:ring-2 focus:ring-primary-green" data-mock="true">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-medium mb-2">Peserta</label>
+                    <select class="w-full p-3 border border-gray-300 rounded-default focus:ring-2 focus:ring-primary-green" data-mock="true">
+                        <option>1-2 Orang</option>
+                        <option>3-5 Orang</option>
+                        <option>6+ Orang</option>
+                    </select>
+                </div>
+            </div>
+            <button class="w-full bg-primary-green text-white py-3 rounded-default mt-4 hover:bg-green-600 transition-colors font-semibold">
+                Cari Paket Wisata
+            </button>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: HeroSection -->
+
+<!-- @COMPONENT: FeaturedPackages [Popular travel packages grid] -->
+<section id="packages" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-dark-forest mb-4">Paket Wisata Terpopuler</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Pilihan paket tour terbaik dengan harga terjangkau dan pelayanan memuaskan</p>
+        </div>
+
+        <!-- @MAP: packages.map(package => ( -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Package 1 -->
+            <div class="bg-white rounded-default shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+                <!-- Scenic rice terraces in Bali with morning golden light -->
+                <img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+                     alt="Bali rice terraces tour package" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-primary-green text-white px-3 py-1 rounded-full text-sm font-medium">3D2N</span>
+                        <div class="flex text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-600 ml-1 text-sm">(4.8)</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-forest mb-2">Bali Budaya & Alam</h3>
+                    <p class="text-gray-600 mb-4">Jelajahi keindahan sawah terasering Jatiluwih, Pura Tanah Lot, dan budaya Bali yang autentik</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-bold text-primary-green" data-bind="package.price">Rp 2.850.000</span>
+                            <span class="text-gray-500 text-sm">/orang</span>
+                        </div>
+                        <button class="bg-primary-green text-white px-4 py-2 rounded-default hover:bg-green-600 transition-colors">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 2 -->
+            <div class="bg-white rounded-default shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+                <!-- Ancient temple complex Borobudur at sunrise with mist -->
+                <img src="https://pixabay.com/get/gf25b31b950614dd888b58f4c89b5d41e5249a703d84c392fd8d62dde20fddb0e50c22f75f0ac8eae01911f6c9401e8f05a3047d5ee7ee1d5f62f96c0fe8fd78c_1280.jpg" 
+                     alt="Yogyakarta cultural heritage tour" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-warm-brown text-white px-3 py-1 rounded-full text-sm font-medium">4D3N</span>
+                        <div class="flex text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-600 ml-1 text-sm">(4.9)</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-forest mb-2">Yogya Heritage Tour</h3>
+                    <p class="text-gray-600 mb-4">Eksplorasi Candi Borobudur, Prambanan, Keraton Yogya, dan kuliner legendaris Gudeg</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-bold text-primary-green" data-bind="package.price">Rp 1.950.000</span>
+                            <span class="text-gray-500 text-sm">/orang</span>
+                        </div>
+                        <button class="bg-primary-green text-white px-4 py-2 rounded-default hover:bg-green-600 transition-colors">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="bg-white rounded-default shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+                <!-- Pristine white sandy beach in Lombok with turquoise water -->
+                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+                     alt="Lombok beach paradise tour" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">5D4N</span>
+                        <div class="flex text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="text-gray-600 ml-1 text-sm">(4.6)</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-forest mb-2">Lombok Paradise</h3>
+                    <p class="text-gray-600 mb-4">Nikmati keindahan Pantai Senggigi, Gili Trawangan, dan pendakian Gunung Rinjani</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-bold text-primary-green" data-bind="package.price">Rp 3.450.000</span>
+                            <span class="text-gray-500 text-sm">/orang</span>
+                        </div>
+                        <button class="bg-primary-green text-white px-4 py-2 rounded-default hover:bg-green-600 transition-colors">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 4 -->
+            <div class="bg-white rounded-default shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+                <!-- Underwater coral reef scene with tropical fish in Raja Ampat -->
+                <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+                     alt="Raja Ampat diving adventure tour" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-teal-500 text-white px-3 py-1 rounded-full text-sm font-medium">6D5N</span>
+                        <div class="flex text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-600 ml-1 text-sm">(5.0)</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-forest mb-2">Raja Ampat Diving</h3>
+                    <p class="text-gray-600 mb-4">Eksplorasi surga bawah laut terbaik dunia dengan keanekaragaman hayati luar biasa</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-bold text-primary-green" data-bind="package.price">Rp 8.750.000</span>
+                            <span class="text-gray-500 text-sm">/orang</span>
+                        </div>
+                        <button class="bg-primary-green text-white px-4 py-2 rounded-default hover:bg-green-600 transition-colors">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 5 -->
+            <div class="bg-white rounded-default shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+                <!-- Traditional Indonesian cultural performance with colorful costumes -->
+                <img src="https://pixabay.com/get/ga82924c4c3d026d07d3c5a256daf204818d05dcb8fae7f948f107278b95420416d22a7ae4c15c8fec38359e5ad9850557f8b20fa2ac8ef3602c41134a0655cfa_1280.jpg" 
+                     alt="Indonesia cultural immersion tour" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium">7D6N</span>
+                        <div class="flex text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="text-gray-600 ml-1 text-sm">(4.7)</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-forest mb-2">Java Cultural Journey</h3>
+                    <p class="text-gray-600 mb-4">Perjalanan budaya lengkap Jakarta-Bandung-Yogya-Solo dengan pengalaman autentik</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-bold text-primary-green" data-bind="package.price">Rp 4.250.000</span>
+                            <span class="text-gray-500 text-sm">/orang</span>
+                        </div>
+                        <button class="bg-primary-green text-white px-4 py-2 rounded-default hover:bg-green-600 transition-colors">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 6 -->
+            <div class="bg-white rounded-default shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+                <!-- Adventure trekking scene in Indonesian mountains with forest backdrop -->
+                <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+                     alt="Indonesia adventure trekking tour" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">4D3N</span>
+                        <div class="flex text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-600 ml-1 text-sm">(4.8)</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-forest mb-2">Adventure Trekking</h3>
+                    <p class="text-gray-600 mb-4">Petualangan mendaki Gunung Bromo, air terjun Tumpak Sewu, dan kawah Ijen yang memukau</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-bold text-primary-green" data-bind="package.price">Rp 2.150.000</span>
+                            <span class="text-gray-500 text-sm">/orang</span>
+                        </div>
+                        <button class="bg-primary-green text-white px-4 py-2 rounded-default hover:bg-green-600 transition-colors">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- @END_MAP )) -->
+
+        <div class="text-center mt-12">
+            <button class="bg-primary-green text-white px-8 py-3 rounded-default hover:bg-green-600 transition-colors font-semibold">
+                Lihat Semua Paket
+            </button>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: FeaturedPackages -->
+
+<!-- @COMPONENT: ServicesSection [Company services overview] -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-dark-forest mb-4">Mengapa Memilih RR Travel?</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Kami berkomitmen memberikan pengalaman wisata terbaik dengan layanan profesional dan terpercaya</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center">
+                <div class="bg-primary-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-shield-alt text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-dark-forest mb-2">Terpercaya & Aman</h3>
+                <p class="text-gray-600">Terdaftar resmi dengan standar keamanan tinggi untuk kenyamanan perjalanan Anda</p>
+            </div>
+
+            <div class="text-center">
+                <div class="bg-primary-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-users text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-dark-forest mb-2">Guide Berpengalaman</h3>
+                <p class="text-gray-600">Tim guide lokal profesional dengan pengetahuan mendalam tentang destinasi wisata</p>
+            </div>
+
+            <div class="text-center">
+                <div class="bg-primary-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-dollar-sign text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-dark-forest mb-2">Harga Terjangkau</h3>
+                <p class="text-gray-600">Paket wisata berkualitas dengan harga bersaing dan tanpa biaya tersembunyi</p>
+            </div>
+
+            <div class="text-center">
+                <div class="bg-primary-green text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-headset text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-dark-forest mb-2">Support 24/7</h3>
+                <p class="text-gray-600">Layanan pelanggan siap membantu Anda kapan saja selama perjalanan wisata</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: ServicesSection -->
+
+<!-- @COMPONENT: AboutSection [Owner introduction and company info] -->
+<section id="about" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-4xl font-bold text-dark-forest mb-6">Tentang RR Travel</h2>
+                <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                    RR Travel didirikan dengan visi untuk memperkenalkan keindahan Indonesia kepada wisatawan domestik dan mancanegara. 
+                    Kami percaya bahwa setiap perjalanan adalah kesempatan untuk menciptakan kenangan yang tak terlupakan.
+                </p>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Dengan pengalaman lebih dari 5 tahun dalam industri pariwisata, kami telah melayani ribuan wisatawan dengan 
+                    kepuasan tinggi dan komitmen pada kualitas layanan terbaik.
+                </p>
+
+                <!-- Owner Profile -->
+                <div class="bg-gray-50 rounded-default p-6">
+                    <div class="flex items-center space-x-4">
+                        <img src="attached_assets/IMG_20250506_100848-removebg-preview_1754716476473.png" 
+                             alt="Reza Pahlawan - Founder RR Travel" 
+                             class="w-20 h-20 rounded-full object-cover shadow-lg">
+                        <div>
+                            <h4 class="text-xl font-bold text-dark-forest" data-bind="owner.name">Reza Pahlawan</h4>
+                            <p class="text-primary-green font-medium">Founder & CEO</p>
+                            <p class="text-gray-600 text-sm mt-1">
+                                "Passion saya adalah membantu orang mengeksplorasi keajaiban Indonesia dengan cara yang autentik dan berkesan"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <!-- Indonesian traditional architecture and landmarks collage -->
+                <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300" 
+                     alt="Indonesian cultural landmarks" class="rounded-default shadow-lg">
+                <!-- Traditional Indonesian village with wooden houses -->
+                <img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300" 
+                     alt="Traditional Indonesian village" class="rounded-default shadow-lg mt-6">
+                <!-- Indonesian spice market with colorful traditional goods -->
+                <img src="https://pixabay.com/get/gc0dd0e64bdb03568f5bccc3a97d5628161b89937dcdbf3c4ef7ac31c80716227899799da36ef5ce65b9442462ae4cf3bf147d12da1f3eccf62a2b35169e30268_1280.jpg" 
+                     alt="Indonesian traditional market" class="rounded-default shadow-lg">
+                <!-- Indonesian temple complex with traditional architecture -->
+                <img src="https://pixabay.com/get/g316d1e98a56edd291f46ea1f9a50168aba822a0c9a8cf6f20706164a448a16e41f73f17f66606a3768583796772002cd4203e73af3d9b074593ca3d397ebf476_1280.jpg" 
+                     alt="Indonesian temple architecture" class="rounded-default shadow-lg mt-6">
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="grid md:grid-cols-4 gap-8 mt-16 text-center">
+            <div>
+                <div class="text-4xl font-bold text-primary-green mb-2" data-bind="stats.clients">2,500+</div>
+                <p class="text-gray-600">Happy Travelers</p>
+            </div>
+            <div>
+                <div class="text-4xl font-bold text-primary-green mb-2" data-bind="stats.destinations">50+</div>
+                <p class="text-gray-600">Destinasi</p>
+            </div>
+            <div>
+                <div class="text-4xl font-bold text-primary-green mb-2" data-bind="stats.experience">5+</div>
+                <p class="text-gray-600">Tahun Pengalaman</p>
+            </div>
+            <div>
+                <div class="text-4xl font-bold text-primary-green mb-2" data-bind="stats.rating">4.8/5</div>
+                <p class="text-gray-600">Rating Pelanggan</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: AboutSection -->
+
+<!-- @COMPONENT: TestimonialsSection [Customer reviews and feedback] -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-dark-forest mb-4">Testimoni Pelanggan</h2>
+            <p class="text-xl text-gray-600">Dengarkan cerita pengalaman wisata terbaik dari para pelanggan kami</p>
+        </div>
+
+        <!-- @MAP: testimonials.map(testimonial => ( -->
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-default shadow-lg p-6">
+                <div class="flex text-yellow-500 mb-4">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="text-gray-600 mb-6 italic" data-mock="true">
+                    "Perjalanan ke Bali bersama RR Travel sangat memuaskan! Guide-nya ramah dan berpengetahuan luas. 
+                    Semua destinasi sesuai dengan yang dijanjikan, bahkan melebihi ekspektasi kami."
+                </p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-primary-green rounded-full flex items-center justify-center text-white font-bold mr-4">
+                        AS
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-dark-forest" data-mock="true">Andi Setiawan</h5>
+                        <p class="text-gray-500 text-sm">Jakarta</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-default shadow-lg p-6">
+                <div class="flex text-yellow-500 mb-4">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="text-gray-600 mb-6 italic" data-mock="true">
+                    "Diving di Raja Ampat adalah pengalaman yang luar biasa! Tim RR Travel sangat profesional 
+                    dalam mengatur semuanya. Safety equipment lengkap dan guide diving sangat berpengalaman."
+                </p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-primary-green rounded-full flex items-center justify-center text-white font-bold mr-4">
+                        MP
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-dark-forest" data-mock="true">Maya Pertiwi</h5>
+                        <p class="text-gray-500 text-sm">Surabaya</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-default shadow-lg p-6">
+                <div class="flex text-yellow-500 mb-4">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p class="text-gray-600 mb-6 italic" data-mock="true">
+                    "Tour Yogyakarta sangat edukatif! Kami belajar banyak tentang sejarah dan budaya Jawa. 
+                    Harga paket juga sangat terjangkau untuk kualitas layanan yang diberikan."
+                </p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-primary-green rounded-full flex items-center justify-center text-white font-bold mr-4">
+                        RH
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-dark-forest" data-mock="true">Rizki Hermawan</h5>
+                        <p class="text-gray-500 text-sm">Bandung</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- @END_MAP )) -->
+    </div>
+</section>
+<!-- @END_COMPONENT: TestimonialsSection -->
+
+<!-- @COMPONENT: ContactSection [Contact form and company details] -->
+<section id="contact" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-dark-forest mb-4">Hubungi Kami</h2>
+            <p class="text-xl text-gray-600">Siap merencanakan liburan impian Anda? Mari diskusikan kebutuhan wisata Anda</p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+            <!-- Contact Information -->
+            <div>
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-primary-green text-white w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-dark-forest mb-2">Alamat Kantor</h4>
+                            <p class="text-gray-600">Jl. Sudirman No. 123, Jakarta Pusat<br>Indonesia 10270</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-primary-green text-white w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-dark-forest mb-2">Telepon</h4>
+                            <p class="text-gray-600">+62 21 1234 5678<br>+62 812 3456 7890</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-primary-green text-white w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-dark-forest mb-2">Email</h4>
+                            <p class="text-gray-600">info@rrtravel.com<br>reservation@rrtravel.com</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-primary-green text-white w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-dark-forest mb-2">Jam Operasional</h4>
+                            <p class="text-gray-600">Senin - Jumat: 09.00 - 18.00<br>Sabtu: 09.00 - 15.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="mt-8">
+                    <h4 class="text-xl font-bold text-dark-forest mb-4">Ikuti Kami</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-primary-green text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-primary-green text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-primary-green text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-primary-green text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="bg-gray-50 rounded-default p-8">
+                <h3 class="text-2xl font-bold text-dark-forest mb-6">Kirim Pesan</h3>
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-2">Nama Lengkap *</label>
+                            <input type="text" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-default focus:ring-2 focus:ring-primary-green focus:border-transparent"
+                                   placeholder="Masukkan nama lengkap" data-mock="true">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-2">Email *</label>
+                            <input type="email" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-default focus:ring-2 focus:ring-primary-green focus:border-transparent"
+                                   placeholder="Masukkan email" data-mock="true">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-2">No. Telepon *</label>
+                            <input type="tel" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-default focus:ring-2 focus:ring-primary-green focus:border-transparent"
+                                   placeholder="Masukkan no. telepon" data-mock="true">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-2">Destinasi Minat</label>
+                            <select class="w-full px-4 py-3 border border-gray-300 rounded-default focus:ring-2 focus:ring-primary-green focus:border-transparent" data-mock="true">
+                                <option>Pilih Destinasi</option>
+                                <option>Bali</option>
+                                <option>Yogyakarta</option>
+                                <option>Lombok</option>
+                                <option>Raja Ampat</option>
+                                <option>Lainnya</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">Pesan</label>
+                        <textarea rows="4" 
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-default focus:ring-2 focus:ring-primary-green focus:border-transparent"
+                                  placeholder="Ceritakan rencana liburan Anda..." data-mock="true"></textarea>
+                    </div>
+
+                    <button type="submit" 
+                            class="w-full bg-primary-green text-white py-3 rounded-default hover:bg-green-600 transition-colors font-semibold"
+                            data-event="click:handleSubmit" data-implementation="Should validate form before submission">
+                        Kirim Pesan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: ContactSection -->
+
+<!-- @COMPONENT: Footer [Site footer with links and info] -->
+<footer class="bg-dark-forest text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8">
+            <!-- Company Info -->
+            <div>
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="bg-primary-green text-white w-10 h-10 rounded-default flex items-center justify-center font-bold text-xl">
+                        RR
+                    </div>
+                    <span class="text-2xl font-bold">RR Travel</span>
+                </div>
+                <p class="text-gray-300 mb-4">
+                    Menyediakan pengalaman wisata terbaik di Indonesia dengan layanan professional dan terpercaya.
+                </p>
+                <div class="flex space-x-3">
+                    <a href="#" class="text-gray-300 hover:text-primary-green transition-colors">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-primary-green transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-primary-green transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-primary-green transition-colors">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="#home" class="text-gray-300 hover:text-primary-green transition-colors">Beranda</a></li>
+                    <li><a href="#packages" class="text-gray-300 hover:text-primary-green transition-colors">Paket Wisata</a></li>
+                    <li><a href="#destinations" class="text-gray-300 hover:text-primary-green transition-colors">Destinasi</a></li>
+                    <li><a href="#about" class="text-gray-300 hover:text-primary-green transition-colors">Tentang Kami</a></li>
+                    <li><a href="#contact" class="text-gray-300 hover:text-primary-green transition-colors">Kontak</a></li>
+                </ul>
+            </div>
+
+            <!-- Destinations -->
+            <div>
+                <h4 class="text-lg font-bold mb-6">Destinasi Populer</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-300 hover:text-primary-green transition-colors">Bali</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-primary-green transition-colors">Yogyakarta</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-primary-green transition-colors">Lombok</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-primary-green transition-colors">Raja Ampat</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-primary-green transition-colors">Bromo Tengger</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h4 class="text-lg font-bold mb-6">Kontak</h4>
+                <div class="space-y-3">
+                    <p class="text-gray-300 flex items-start">
+                        <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary-green"></i>
+                        Jl. Sudirman No. 123<br>Jakarta Pusat 10270
+                    </p>
+                    <p class="text-gray-300 flex items-center">
+                        <i class="fas fa-phone mr-3 text-primary-green"></i>
+                        +62 21 1234 5678
+                    </p>
+                    <p class="text-gray-300 flex items-center">
+                        <i class="fas fa-envelope mr-3 text-primary-green"></i>
+                        info@rrtravel.com
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+            <p class="text-gray-300">
+                © 2024 RR Travel. All rights reserved. | Designed with ❤️ for Indonesia Tourism
+            </p>
+        </div>
+    </div>
+</footer>
+<!-- @END_COMPONENT: Footer -->
+
+<script>
+// TODO: Implement business logic, API calls, or state management
+(function() {
+    'use strict';
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Header scroll effect
+    let lastScroll = 0;
+    const header = document.querySelector('header');
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            header.classList.add('shadow-lg');
+        } else {
+            header.classList.remove('shadow-lg');
+        }
+        
+        lastScroll = currentScroll;
+    });
+
+    // Form submission placeholder
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // TODO: Implement form submission logic
+        alert('Terima kasih! Pesan Anda telah terkirim. Kami akan menghubungi Anda segera.');
+    });
+
+    // Mobile menu toggle (placeholder)
+    const mobileMenuBtn = document.querySelector('.lg\\:hidden button');
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            // TODO: Implement mobile menu toggle
+            console.log('Mobile menu toggle clicked');
+        });
+    }
+})();
+</script>
+
+</body>
+</html>
