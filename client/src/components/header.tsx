@@ -3,6 +3,7 @@ import { Search, Menu, QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import QRScanner from "@/components/qr-scanner";
+import ThemeToggle from "@/components/theme-toggle";
 import logoImage from "@assets/ChatGPT Image Aug 9, 2025, 11_33_24 AM_1754716649787.png";
 
 export default function Header() {
@@ -29,7 +30,7 @@ export default function Header() {
   };
 
   return (
-    <header className={`bg-white sticky top-0 z-50 transition-shadow duration-300 ${isScrolled ? 'shadow-lg' : 'shadow-md'}`}>
+    <header className={`bg-white dark:bg-gray-900 sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-lg' : 'shadow-md'}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -39,7 +40,7 @@ export default function Header() {
               alt="RR Travel Logo" 
               className="w-12 h-12 object-contain"
             />
-            <span className="text-2xl font-bold text-dark-forest">RR Travel</span>
+            <span className="text-2xl font-bold text-dark-forest dark:text-white">RR Travel</span>
           </div>
 
           {/* Search Bar */}
@@ -57,8 +58,9 @@ export default function Header() {
             </Button>
           </div>
 
-          {/* QR Scanner Button */}
-          <div className="hidden md:flex">
+          {/* QR Scanner Button & Theme Toggle */}
+          <div className="hidden md:flex items-center space-x-2">
+            <ThemeToggle />
             <Button 
               variant="outline"
               onClick={() => setIsQRScannerOpen(true)}
@@ -73,31 +75,31 @@ export default function Header() {
           <nav className="hidden lg:flex space-x-8">
             <button 
               onClick={() => scrollToSection('home')} 
-              className="text-dark-forest hover:text-primary-green font-medium transition-colors"
+              className="text-dark-forest dark:text-gray-200 hover:text-primary-green font-medium transition-colors"
             >
               Beranda
             </button>
             <button 
               onClick={() => scrollToSection('packages')} 
-              className="text-dark-forest hover:text-primary-green font-medium transition-colors"
+              className="text-dark-forest dark:text-gray-200 hover:text-primary-green font-medium transition-colors"
             >
               Paket Wisata
             </button>
             <button 
               onClick={() => scrollToSection('destinations')} 
-              className="text-dark-forest hover:text-primary-green font-medium transition-colors"
+              className="text-dark-forest dark:text-gray-200 hover:text-primary-green font-medium transition-colors"
             >
               Destinasi
             </button>
             <button 
               onClick={() => scrollToSection('about')} 
-              className="text-dark-forest hover:text-primary-green font-medium transition-colors"
+              className="text-dark-forest dark:text-gray-200 hover:text-primary-green font-medium transition-colors"
             >
               Tentang Kami
             </button>
             <button 
               onClick={() => scrollToSection('contact')} 
-              className="text-dark-forest hover:text-primary-green font-medium transition-colors"
+              className="text-dark-forest dark:text-gray-200 hover:text-primary-green font-medium transition-colors"
             >
               Kontak
             </button>
@@ -106,7 +108,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <Button 
             variant="ghost" 
-            className="lg:hidden text-dark-forest"
+            className="lg:hidden text-dark-forest dark:text-gray-200"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <Menu className="h-6 w-6" />
@@ -115,7 +117,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-200">
+          <div className="lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
             <div className="px-4 py-2 space-y-2">
               {/* Mobile Search */}
               <div className="flex mb-4">
@@ -133,31 +135,31 @@ export default function Header() {
               <nav className="space-y-2">
                 <button 
                   onClick={() => scrollToSection('home')} 
-                  className="block w-full text-left py-3 px-2 text-dark-forest hover:text-primary-green hover:bg-gray-50 font-medium transition-colors rounded-lg"
+                  className="block w-full text-left py-3 px-2 text-dark-forest dark:text-gray-200 hover:text-primary-green hover:bg-gray-50 dark:hover:bg-gray-800 font-medium transition-colors rounded-lg"
                 >
                   Beranda
                 </button>
                 <button 
                   onClick={() => scrollToSection('packages')} 
-                  className="block w-full text-left py-3 px-2 text-dark-forest hover:text-primary-green hover:bg-gray-50 font-medium transition-colors rounded-lg"
+                  className="block w-full text-left py-3 px-2 text-dark-forest dark:text-gray-200 hover:text-primary-green hover:bg-gray-50 dark:hover:bg-gray-800 font-medium transition-colors rounded-lg"
                 >
                   Paket Wisata
                 </button>
                 <button 
                   onClick={() => scrollToSection('destinations')} 
-                  className="block w-full text-left py-3 px-2 text-dark-forest hover:text-primary-green hover:bg-gray-50 font-medium transition-colors rounded-lg"
+                  className="block w-full text-left py-3 px-2 text-dark-forest dark:text-gray-200 hover:text-primary-green hover:bg-gray-50 dark:hover:bg-gray-800 font-medium transition-colors rounded-lg"
                 >
                   Destinasi
                 </button>
                 <button 
                   onClick={() => scrollToSection('about')} 
-                  className="block w-full text-left py-3 px-2 text-dark-forest hover:text-primary-green hover:bg-gray-50 font-medium transition-colors rounded-lg"
+                  className="block w-full text-left py-3 px-2 text-dark-forest dark:text-gray-200 hover:text-primary-green hover:bg-gray-50 dark:hover:bg-gray-800 font-medium transition-colors rounded-lg"
                 >
                   Tentang Kami
                 </button>
                 <button 
                   onClick={() => scrollToSection('contact')} 
-                  className="block w-full text-left py-3 px-2 text-dark-forest hover:text-primary-green hover:bg-gray-50 font-medium transition-colors rounded-lg"
+                  className="block w-full text-left py-3 px-2 text-dark-forest dark:text-gray-200 hover:text-primary-green hover:bg-gray-50 dark:hover:bg-gray-800 font-medium transition-colors rounded-lg"
                 >
                   Kontak
                 </button>
